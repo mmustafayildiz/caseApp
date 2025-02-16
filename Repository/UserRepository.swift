@@ -5,9 +5,9 @@ protocol UserRepositoryProtocol {
 }
 
 class UserRepository: UserRepositoryProtocol {
-    private let networkManager: NetworkManager
+    private let networkManager: NetworkManagerProtocol  // Protokole bağladık
 
-    init(networkManager: NetworkManager = .shared) {
+    init(networkManager: NetworkManagerProtocol = NetworkManager.shared) {
         self.networkManager = networkManager
     }
 

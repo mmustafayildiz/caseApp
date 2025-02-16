@@ -1,6 +1,12 @@
 import Foundation
 
-class NetworkManager {
+
+protocol NetworkManagerProtocol {
+    func fetchUsers(completion: @escaping (Result<[User], Error>) -> Void)
+}
+
+
+class NetworkManager: NetworkManagerProtocol {
     static let shared = NetworkManager()
     
     internal init() {}

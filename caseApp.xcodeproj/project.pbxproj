@@ -16,6 +16,8 @@
 		452222992D6236FE00F78DFD /* UserDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452222982D6236FE00F78DFD /* UserDetailTableViewCell.swift */; };
 		4522229C2D62583600F78DFD /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522229B2D62583500F78DFD /* UserRepository.swift */; };
 		4522229E2D62618100F78DFD /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522229D2D62618100F78DFD /* UserListViewModelTests.swift */; };
+		452222A02D626C9A00F78DFD /* UserRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4522229F2D626C9A00F78DFD /* UserRepositoryTests.swift */; };
+		452222A22D626D7300F78DFD /* NetworkManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 452222A12D626D7300F78DFD /* NetworkManagerTests.swift */; };
 		45333E9B2D5C99900062C933 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45333E9A2D5C99900062C933 /* AppDelegate.swift */; };
 		45333E9D2D5C99900062C933 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45333E9C2D5C99900062C933 /* SceneDelegate.swift */; };
 		45333E9F2D5C99900062C933 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45333E9E2D5C99900062C933 /* ViewController.swift */; };
@@ -54,6 +56,8 @@
 		452222982D6236FE00F78DFD /* UserDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailTableViewCell.swift; sourceTree = "<group>"; };
 		4522229B2D62583500F78DFD /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		4522229D2D62618100F78DFD /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
+		4522229F2D626C9A00F78DFD /* UserRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepositoryTests.swift; sourceTree = "<group>"; };
+		452222A12D626D7300F78DFD /* NetworkManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManagerTests.swift; sourceTree = "<group>"; };
 		45333E972D5C99900062C933 /* caseApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = caseApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45333E9A2D5C99900062C933 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		45333E9C2D5C99900062C933 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +185,8 @@
 			children = (
 				45333EB12D5C99960062C933 /* caseAppTests.swift */,
 				4522229D2D62618100F78DFD /* UserListViewModelTests.swift */,
+				4522229F2D626C9A00F78DFD /* UserRepositoryTests.swift */,
+				452222A12D626D7300F78DFD /* NetworkManagerTests.swift */,
 			);
 			path = caseAppTests;
 			sourceTree = "<group>";
@@ -343,7 +349,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				452222A22D626D7300F78DFD /* NetworkManagerTests.swift in Sources */,
 				45333EB22D5C99960062C933 /* caseAppTests.swift in Sources */,
+				452222A02D626C9A00F78DFD /* UserRepositoryTests.swift in Sources */,
 				4522229E2D62618100F78DFD /* UserListViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
