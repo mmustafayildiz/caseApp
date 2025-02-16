@@ -1,7 +1,12 @@
 {
   "colors" : [
     {
+      "filename" : "icon.jpg",
       "idiom" : "universal"
+    },
+    {
+      "filename" : "DALL·E 2025-02-17 00.53.07 - A high-quality, app icon-style image of a generic apple logo for an iOS application. The design should be modern, minimalistic, and suitable for an ap.jpg",
+      "idiom" : "iphone"
     }
   ],
   "info" : {
