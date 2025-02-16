@@ -32,7 +32,7 @@ CaseApp/
 │── ViewController/   # UI logic & controllers
 │── Networking/       # NetworkManager for API requests
 │── Repository/       # Repository layer for data management
-│── Resources/        # Assets and other resources
+│── caseApp/Assets    # Assets and other resources
 │── Tests/            # Unit tests
 ```
 
