@@ -1,11 +1,13 @@
 import UIKit
 
+// MARK: - UserDetailViewController
+// This ViewController is responsible for displaying detailed information about a selected user.
 class UserDetailViewController: UIViewController {
     
-    var user: User?  // Seçilen kullanıcı bilgisi
+    var user: User?  // Stores the selected user details
     
-    private let tableView = UITableView()
-    private var details: [(icon: String, title: String, value: String)] = []  // let yerine var kullanıldı
+    private let tableView = UITableView() // TableView to display user details
+    private var details: [(icon: String, title: String, value: String)] = [] // Stores user details with icons
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -13,6 +15,8 @@ class UserDetailViewController: UIViewController {
         setupData()
     }
     
+    // MARK: - UI Setup
+    // Configures the appearance and layout of UI elements.
     private func setupUI() {
         view.backgroundColor = .white
         title = "User Detail"
@@ -48,6 +52,8 @@ class UserDetailViewController: UIViewController {
         ])
     }
     
+    // MARK: - Data Setup
+    // Populates the details array with the user's information.
     private func setupData() {
         guard let user = user else { return }
         
@@ -62,6 +68,8 @@ class UserDetailViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDelegate & UITableViewDataSource
+// Handles table view data population.
 extension UserDetailViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return details.count

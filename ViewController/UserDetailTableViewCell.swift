@@ -1,7 +1,11 @@
 import UIKit
 
+// MARK: - UserDetailTableViewCell
+// This UITableViewCell subclass is responsible for displaying detailed user information in the detail screen.
 class UserDetailTableViewCell: UITableViewCell {
     
+    // MARK: - UI Elements
+    // Icon representing the type of detail (e.g., email, phone, etc.)
     private let iconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.tintColor = .orange
@@ -10,6 +14,7 @@ class UserDetailTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    // Title label (e.g., "Email", "Phone")
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -17,14 +22,16 @@ class UserDetailTableViewCell: UITableViewCell {
         return label
     }()
     
+    // Value label displaying the actual user information
     private let valueLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont.systemFont(ofSize: 14)
         label.textColor = .gray
-        label.numberOfLines = 0
+        label.numberOfLines = 0 // Allows multiline display
         return label
     }()
     
+    // StackView to arrange title and value vertically
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -33,6 +40,7 @@ class UserDetailTableViewCell: UITableViewCell {
         return stack
     }()
     
+    // MARK: - Initializer
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.backgroundColor = .white
@@ -43,6 +51,7 @@ class UserDetailTableViewCell: UITableViewCell {
         contentView.addSubview(iconImageView)
         contentView.addSubview(stackView)
         
+        // MARK: - Layout Constraints
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 16),
             iconImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
@@ -61,6 +70,8 @@ class UserDetailTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Configuration Method
+    // Configures the cell with icon, title, and value data.
     func configure(icon: String, title: String, value: String) {
         iconImageView.image = UIImage(systemName: icon)
         titleLabel.text = title

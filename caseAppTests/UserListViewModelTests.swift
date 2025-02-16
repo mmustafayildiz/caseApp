@@ -1,6 +1,8 @@
 import XCTest
 @testable import caseApp
 
+// MARK: - UserListViewModelTests
+// Unit tests for UserListViewModel to verify fetching users functionality.
 class UserListViewModelTests: XCTestCase {
     
     var viewModel: UserListViewModel!
@@ -18,8 +20,10 @@ class UserListViewModelTests: XCTestCase {
         super.tearDown()
     }
     
+    // MARK: - Test Cases
+    // Tests successful fetching of users.
     func testFetchUsers_Success() {
-        // Arrange
+        // Arrange: Set up mock users to return.
         let mockUsers = [
             User(
                 id: 1,
@@ -34,27 +38,29 @@ class UserListViewModelTests: XCTestCase {
         ]
         mockRepository.mockUsers = mockUsers
         
-        // Act
+        // Act: Call fetchUsers method.
         viewModel.fetchUsers()
         
-        // Assert
+        // Assert: Check if the fetched users match the mock data.
         XCTAssertEqual(viewModel.users.count, mockUsers.count)
         XCTAssertEqual(viewModel.users.first?.name, "John Doe")
     }
     
+    // Tests failure case when fetching users.
     func testFetchUsers_Failure() {
-        // Arrange
+        // Arrange: Set repository to return an error.
         mockRepository.shouldReturnError = true
         
-        // Act
+        // Act: Call fetchUsers method.
         viewModel.fetchUsers()
         
-        // Assert
+        // Assert: Verify that users array remains empty on failure.
         XCTAssertTrue(viewModel.users.isEmpty)
     }
 }
 
-// Mock User Repository
+// MARK: - Mock User Repository
+// A mock implementation of UserRepositoryProtocol for testing purposes.
 class MockUserRepository: UserRepositoryProtocol {
     var mockUsers: [User] = []
     var shouldReturnError = false
