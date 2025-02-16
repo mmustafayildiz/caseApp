@@ -16,6 +16,7 @@ class UserDetailViewController: UIViewController {
     private func setupUI() {
         view.backgroundColor = .white
         title = "User Detail"
+        tableView.backgroundColor = .white
         
         // Navigation Bar Styling
         let appearance = UINavigationBarAppearance()

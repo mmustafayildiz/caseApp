@@ -15,6 +15,7 @@ class UserListViewController: UIViewController {
     private func setupUI() {
         title = "Users"
         view.backgroundColor = .white
+        tableView.backgroundColor = .white
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()

@@ -35,7 +35,8 @@ class UserDetailTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        contentView.backgroundColor = .white
+        backgroundColor = .white
         stackView.addArrangedSubview(titleLabel)
         stackView.addArrangedSubview(valueLabel)
         
