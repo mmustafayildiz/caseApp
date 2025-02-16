@@ -34,6 +34,15 @@ class UserTableViewCell: UITableViewCell {
         return imageView
     }()
     
+    private let chevronImageView: UIImageView = {
+           let imageView = UIImageView()
+           imageView.image = UIImage(systemName: "chevron.right") // Sağ ok ikonu
+           imageView.tintColor = .gray
+           imageView.translatesAutoresizingMaskIntoConstraints = false
+           imageView.contentMode = .scaleAspectFit
+           return imageView
+       }()
+    
     private let stackView: UIStackView = {
         let stack = UIStackView()
         stack.axis = .vertical
@@ -57,6 +66,7 @@ class UserTableViewCell: UITableViewCell {
         
         contentView.addSubview(iconImageView)
         contentView.addSubview(stackView)
+        contentView.addSubview(chevronImageView)
         
         NSLayoutConstraint.activate([
             iconImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
@@ -67,10 +77,15 @@ class UserTableViewCell: UITableViewCell {
             stackView.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 12),
             stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             stackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+            chevronImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+                        chevronImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+                        chevronImageView.widthAnchor.constraint(equalToConstant: 16),
+                        chevronImageView.heightAnchor.constraint(equalToConstant: 16),
             
             mailIcon.widthAnchor.constraint(equalToConstant: 16),
             mailIcon.heightAnchor.constraint(equalToConstant: 16)
         ])
+        
     }
     
     required init?(coder: NSCoder) {

@@ -16,7 +16,6 @@ class UserListViewController: UIViewController {
         title = "Users"
         view.backgroundColor = .white
         
-        // Navigation Bar Styling
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.orange
@@ -30,6 +29,9 @@ class UserListViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UserTableViewCell.self, forCellReuseIdentifier: "UserCell")
+        tableView.separatorInset = .zero
+        tableView.layoutMargins = .zero
+        tableView.separatorStyle = .singleLine
         
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
