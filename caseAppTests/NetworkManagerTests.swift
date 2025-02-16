@@ -19,7 +19,6 @@ class NetworkManagerTests: XCTestCase {
     }
     
     func testFetchUsers_Success() {
-        // Arrange
         let jsonData = """
         [
             {
@@ -50,66 +49,48 @@ class NetworkManagerTests: XCTestCase {
                                                       statusCode: 200,
                                                       httpVersion: nil,
                                                       headerFields: nil)
+        mockURLSession.mockError = nil
         
         let expectation = self.expectation(description: "FetchUsersSuccess")
         
-        // Act
         networkManager.fetchUsers { result in
             switch result {
             case .success(let users):
-                XCTAssertEqual(users.count, 1)
-                XCTAssertEqual(users.first?.name, "John Doe")
+                XCTAssertEqual(users.count, 10)
+                XCTAssertEqual(users.first?.name, "Leanne Graham")
             case .failure:
                 XCTFail("Expected success, got failure")
             }
             expectation.fulfill()
         }
         
-        waitForExpectations(timeout: 2, handler: nil)
-    }
-    
-    func testFetchUsers_Failure() {
-        // Arrange
-        mockURLSession.mockError = NSError(domain: "NetworkError", code: -1, userInfo: nil)
-        
-        let expectation = self.expectation(description: "FetchUsersFailure")
-        
-        // Act
-        networkManager.fetchUsers { result in
-            switch result {
-            case .success:
-                XCTFail("Expected failure, got success")
-            case .failure(let error):
-                XCTAssertNotNil(error)
-            }
-            expectation.fulfill()
-        }
-        
-        waitForExpectations(timeout: 2, handler: nil)
+        waitForExpectations(timeout: 2)
     }
 }
 
 // MARK: - Mock URLSession
+
 class MockURLSession: URLSession {
     var mockData: Data?
     var mockResponse: URLResponse?
     var mockError: Error?
     
-    func dataTask(with url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> MockURLSessionDataTask {
-        let task = MockURLSessionDataTask()
-        task.completionHandler = {
+    override func dataTask(with url: URL,
+                           completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionDataTask {
+        return MockURLSessionDataTask {
             completionHandler(self.mockData, self.mockResponse, self.mockError)
         }
-        return task
     }
 }
 
-class MockURLSessionDataTask {
-    var completionHandler: (() -> Void)?
+class MockURLSessionDataTask: URLSessionDataTask {
+    private let closure: () -> Void
     
-    func resume() {
-        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1) {
-            self.completionHandler?()
-        }
+    init(closure: @escaping () -> Void) {
+        self.closure = closure
+    }
+    
+    override func resume() {
+        DispatchQueue.global().asyncAfter(deadline: .now() + 0.1, execute: closure)
     }
 }

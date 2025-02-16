@@ -8,8 +8,11 @@ protocol NetworkManagerProtocol {
 
 class NetworkManager: NetworkManagerProtocol {
     static let shared = NetworkManager()
+    private let session: URLSession
     
-    internal init() {}
+    internal init(session: URLSession = URLSession.shared) {
+           self.session = session
+       }
     
     func fetchUsers(completion: @escaping (Result<[User], Error>) -> Void) {
         let urlString = "https://jsonplaceholder.typicode.com/users"
